@@ -95,3 +95,4 @@
 - Added logging for debugging | 2026-03-09 22:46:37.426654
 - Refactored prompt handling | 2026-03-09 22:47:37.970275
 - Optimized model loading | 2026-03-09 22:48:38.466504
+- Refactored prompt handling | 2026-03-09 22:49:38.926603
