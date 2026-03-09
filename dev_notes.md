@@ -26,3 +26,4 @@
 - Improved input validation | 2026-03-09 19:52:03.824682
 - Refactored prompt handling | 2026-03-09 19:53:04.902159
 - Refactored prompt handling | 2026-03-09 19:54:06.051262
+- Added logging for debugging | 2026-03-09 19:55:07.072212
