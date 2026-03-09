@@ -111,7 +111,7 @@ const Whiteboard: React.FC = () => {
       .replace(/[^\w\s]/g, '') // Remove punctuation
       .trim()
       .replace(/\s+/g, '-');   // Replace spaces with hyphens
-    const imagePath = `/images/${cleaned}.jpg`;
+    const imagePath = `/images/${cleaned}..jpg`;
     if (!images.includes(imagePath)) {
       const img = new Image();
       img.src = imagePath;
