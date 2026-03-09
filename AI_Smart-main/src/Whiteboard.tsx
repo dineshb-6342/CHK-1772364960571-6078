@@ -105,8 +105,13 @@ const Whiteboard: React.FC = () => {
 
   /* ---------- media helpers ---------- */
   const fetchImagesFromSentence = (sentence: string) => {
-    const trimmed = sentence.trimEnd();
-    const imagePath = `/images/${trimmed}.jpg`;
+    // Clean the sentence: remove punctuation, replace spaces with hyphens
+    const cleaned = sentence
+      .toLowerCase()
+      .replace(/[^\w\s]/g, '') // Remove punctuation
+      .trim()
+      .replace(/\s+/g, '-');   // Replace spaces with hyphens
+    const imagePath = `/images/${cleaned}.jpg`;
     if (!images.includes(imagePath)) {
       const img = new Image();
       img.src = imagePath;
@@ -116,8 +121,13 @@ const Whiteboard: React.FC = () => {
   };
 
   const fetchVideosFromSentence = (sentence: string) => {
-    const trimmed = sentence.trimEnd();
-    const videoPath = `/videos/${trimmed}.mp4`;
+    // Clean the sentence: remove punctuation, replace spaces with hyphens
+    const cleaned = sentence
+      .toLowerCase()
+      .replace(/[^\w\s]/g, '') // Remove punctuation
+      .trim()
+      .replace(/\s+/g, '-');   // Replace spaces with hyphens
+    const videoPath = `/videos/${cleaned}.mp4`;
     if (!videos.includes(videoPath)) {
       const video = document.createElement("video");
       video.src = videoPath;
