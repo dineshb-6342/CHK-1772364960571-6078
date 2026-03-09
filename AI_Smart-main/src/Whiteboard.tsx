@@ -105,13 +105,13 @@ const Whiteboard: React.FC = () => {
 
   /* ---------- media helpers ---------- */
   const fetchImagesFromSentence = (sentence: string) => {
-    // Clean the sentence: remove punctuation, replace spaces with hyphens
+    // Clean the sentence: remove punctuation, convert to lowercase, trim
     const cleaned = sentence
       .toLowerCase()
       .replace(/[^\w\s]/g, '') // Remove punctuation
-      .trim()
-      .replace(/\s+/g, '-');   // Replace spaces with hyphens
-    const imagePath = `/images/${cleaned}.jpg`;
+      .trim();
+    // Replace spaces with URL-encoded space (%20) to match actual file names
+    const imagePath = `/images/${cleaned.replace(/\s+/g, '%20')}.jpg`;
     if (!images.includes(imagePath)) {
       const img = new Image();
       img.src = imagePath;
@@ -121,13 +121,13 @@ const Whiteboard: React.FC = () => {
   };
 
   const fetchVideosFromSentence = (sentence: string) => {
-    // Clean the sentence: remove punctuation, replace spaces with hyphens
+    // Clean the sentence: remove punctuation, convert to lowercase, trim
     const cleaned = sentence
       .toLowerCase()
       .replace(/[^\w\s]/g, '') // Remove punctuation
-      .trim()
-      .replace(/\s+/g, '-');   // Replace spaces with hyphens
-    const videoPath = `/videos/${cleaned}.mp4`;
+      .trim();
+    // Replace spaces with URL-encoded space (%20) to match actual file names
+    const videoPath = `/videos/${cleaned.replace(/\s+/g, '%20')}.mp4`;
     if (!videos.includes(videoPath)) {
       const video = document.createElement("video");
       video.src = videoPath;
