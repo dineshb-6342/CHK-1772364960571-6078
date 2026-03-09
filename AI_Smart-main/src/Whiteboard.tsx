@@ -110,8 +110,8 @@ const Whiteboard: React.FC = () => {
       .toLowerCase()
       .replace(/[^\w\s]/g, '') // Remove punctuation
       .trim();
-    // Replace spaces with URL-encoded space (%20) to match actual file names
-    const imagePath = `/images/${cleaned.replace(/\s+/g, '%20')}.jpg`;
+    // Use encodeURI to properly handle spaces in the URL
+    const imagePath = `/images/${encodeURI(cleaned)}.jpg`;
     if (!images.includes(imagePath)) {
       const img = new Image();
       img.src = imagePath;
@@ -126,8 +126,8 @@ const Whiteboard: React.FC = () => {
       .toLowerCase()
       .replace(/[^\w\s]/g, '') // Remove punctuation
       .trim();
-    // Replace spaces with URL-encoded space (%20) to match actual file names
-    const videoPath = `/videos/${cleaned.replace(/\s+/g, '%20')}.mp4`;
+    // Use encodeURI to properly handle spaces in the URL
+    const videoPath = `/videos/${encodeURI(cleaned)}.mp4`;
     if (!videos.includes(videoPath)) {
       const video = document.createElement("video");
       video.src = videoPath;
