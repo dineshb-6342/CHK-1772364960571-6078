@@ -87,3 +87,4 @@
 - Added logging for debugging | 2026-03-09 22:38:33.608201
 - Refactored prompt handling | 2026-03-09 22:39:34.067601
 - Refactored prompt handling | 2026-03-09 22:40:34.571470
+- Improved UI interaction | 2026-03-09 22:41:35.032601
