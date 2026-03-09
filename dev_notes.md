@@ -78,3 +78,4 @@
 - Added logging for debugging | 2026-03-09 22:29:28.921831
 - Optimized rendering pipeline | 2026-03-09 22:30:29.496187
 - Optimized model loading | 2026-03-09 22:31:30.221521
+- Refactored prompt handling | 2026-03-09 22:32:30.698194
