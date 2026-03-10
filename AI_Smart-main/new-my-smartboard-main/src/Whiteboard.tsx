@@ -105,8 +105,13 @@ const Whiteboard: React.FC = () => {
 
   /* ---------- media helpers ---------- */
   const fetchImagesFromSentence = (sentence: string) => {
-    const trimmed = sentence.trimEnd();
-    const imagePath = `/images/${trimmed}.jpeg`;
+    // Clean the sentence: remove punctuation, convert to lowercase, trim
+    const cleaned = sentence
+      .toLowerCase()
+      .replace(/[^\w\s]/g, '') // Remove punctuation
+      .trim();
+    // Use encodeURI to properly handle spaces in the URL
+    const imagePath = `/images/${encodeURI(cleaned)}.jpg`;
     if (!images.includes(imagePath)) {
       const img = new Image();
       img.src = imagePath;
@@ -116,8 +121,13 @@ const Whiteboard: React.FC = () => {
   };
 
   const fetchVideosFromSentence = (sentence: string) => {
-    const trimmed = sentence.trimEnd();
-    const videoPath = `/videos/${trimmed}.mp4`;
+    // Clean the sentence: remove punctuation, convert to lowercase, trim
+    const cleaned = sentence
+      .toLowerCase()
+      .replace(/[^\w\s]/g, '') // Remove punctuation
+      .trim();
+    // Use encodeURI to properly handle spaces in the URL
+    const videoPath = `/videos/${encodeURI(cleaned)}.mp4`;
     if (!videos.includes(videoPath)) {
       const video = document.createElement("video");
       video.src = videoPath;
@@ -125,6 +135,7 @@ const Whiteboard: React.FC = () => {
       video.onerror = () => console.error(`Video not found: ${videoPath}`);
     }
   };
+
 
   /* ---------- speech recognition ---------- */
   const toggleSpeech = () => {
